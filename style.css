@@ -1,0 +1,501 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none; border: none;
+    transition: all .2s linear;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+body{
+     overflow-x: hidden;
+     padding-left: 35rem;
+}
+a{
+    position: relative;
+    padding: 10px 30px;
+    margin: 45px 0;
+    color: chocolate;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+a::before{
+    content: "";
+    position: absolute;
+    top: -1px; left: -1px;
+    height: 10px; width: 10px;
+    border-top: 2px solid chocolate;
+    border-left: 2px solid chocolate;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+a::after{
+    content: "";
+    position: absolute;
+    bottom: -1px; right: -1px;
+    height: 10px; width: 10px;
+    border-bottom: 2px solid chocolate;
+    border-right: 2px solid chocolate;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+a:hover::before, a:hover::after{
+    width: 100%; height: 100%;
+    transition-delay: 0s;
+}
+a:hover{
+    background-color: chocolate;
+    color: white;
+    box-shadow: 0 0 50px chocolate;
+    transition-delay: 0.5s;
+}
+section {
+    min-height: 100vh;
+    padding: 1rem;
+}
+span{
+    color: chocolate;;
+}
+.heading{
+    text-align: center;
+    font-size: 6rem;
+    padding: 1rem;
+    margin: 0 4rem;
+    border-bottom: 0.2rem solid black;
+}
+
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+/*HEADER SECTION STARTS*/
+header{
+    position: fixed;
+    top: 0; left: 0;
+    height: 100%; width: 35rem;
+    background-color: black;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1000;
+}
+header .hero img{
+    height: 17rem; width: 17rem;
+    border: 0.7rem solid chocolate;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+header .hero .name{
+    font-size: 3.5rem;
+    color: chocolate;
+}
+header .hero .desc{
+    font-size: 2rem;
+    color: chocolate;
+}
+header .navbar{
+    width: 90%;
+}
+header .navbar ul{
+    list-style: none;
+    padding: 1rem 3rem;
+}
+header .navbar ul li a{
+    display: block;
+    padding: 1rem 0;
+    margin: 2rem 0;
+    font-size: 2rem;
+}
+/*HEADER SECTION ENDS*/
+
+/*HAMBURGER SECTION STARTS*/
+.hamburger{
+    position: fixed;
+    top: 4rem; right: 2rem;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+.hamburger.active .bar::before{
+    top: 0; transform: translateY(0deg);
+    background-color: chocolate;
+}
+.hamburger.active .bar::after{
+    bottom: 0; transform: translateY(0deg);
+    background-color: chocolate;
+}
+.hamburger .bar{
+    height: 5px; width: 30px;
+    background-color: chocolate;
+    position: relative;
+    display: flex;
+}
+.hamburger .bar::before,
+.hamburger .bar::after{
+    content: "";
+    position: absolute;
+    height: 100%; width: 100%; left: 0;
+    background-color: chocolate;
+    transition: 0.3s ease all;
+}
+.hamburger .bar::before{
+    top: 10px;
+}
+.hamburger .bar::after{
+    bottom: 10px;
+}
+/*HAMBURGER SECTION ENDS*/
+
+/*HOME SECTION STARTS*/
+.home {
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin: 0 15rem;
+}
+.home .wave{
+    font-size: 4rem;
+    -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,0.2));
+}
+.home .wave span{
+    display: inline-block;
+    animation: wave-animation 1s infinite;
+    animation-delay: calc(0.1s * var(--item));
+}
+.home h1{
+    font-size: 8rem;
+}
+.home p{
+    font-size: 2.5rem;
+}
+.home .text{
+    position: relative;
+    color: chocolate; 
+}
+.home .text.first-text{
+    color: black;
+}
+.home .text.second-text::before{
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%; width: 100%;
+    background-color: white;
+    border-left: 2px solid chocolate;
+    animation: animate 5s steps(5) infinite;
+}
+/*ABOUT SECTION STARTS*/
+.about .info-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.about .info-container p{
+    font-size: 2rem;
+    text-align: center;
+    margin: 2rem;
+}
+.about .info-container .my-info{
+    flex: 1 1 48rem;
+    padding: 1rem;
+    padding: 0 5rem 0;
+}
+.about .info-container .my-info h3{
+    font-size: 2rem;
+    padding: 1rem;
+}
+.about .info-container .box-container{
+    display: flex;
+    flex: 1 1 48rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: white;
+}
+.about .info-container .box-container .box-info{
+    text-align: center;
+    background-color: black;
+    width: 20rem;
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 3rem;
+}
+.about .info-container .box-container .box-info span{
+    font-size: 6rem;
+    font-weight: 600;
+}
+.about .info-container .box-container .box-info h3{
+    font-size: 1.5rem;
+}
+/*ABOUT SECTION ENDS*/
+
+/*EDUCATION SECTION STARTS*/
+.education .box-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+}
+.education .box-container .box-info{
+    width: 27rem;
+    margin: 4rem 1rem;
+    padding-left: 4rem;
+    border-left: 0.2rem solid black;
+}
+.education .box-container .box-info span{
+    font-size: 3rem;
+    font-weight: 600;
+    background-color: black;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.education .box-container .box-info h3{
+    font-size: 2rem;
+    padding-top: 1.5rem;
+}
+.education .box-container .box-info p{
+    font-size: 1.5rem;
+    padding: 1rem 0;
+}
+/*EDUCATION SECTION ENDS*/
+
+/*PORTFOLIO SECTION STARTS*/
+.portfolio .portfolio-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.portfolio .portfolio-container .portfolio-item{
+    position: relative;
+    margin: 4rem 2rem;
+    height: 25rem; width: 25rem;
+    overflow: hidden;
+    transition: 0.5s;
+    border-radius: 1rem;
+}
+.portfolio .portfolio-container .portfolio-item:hover{
+    z-index: 1;
+    transform: scale(1.1);
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
+}
+.portfolio .portfolio-container .portfolio-item .image{
+    position: absolute;
+    width: 100%; height: 100%;
+}
+.portfolio .portfolio-container .portfolio-item .image img{
+    width: 100%; height: 100%;
+}
+.portfolio .portfolio-container .portfolio-item .image::before{
+    content:"";
+    position:absolute;
+    height: 100%; width: 100%;
+    background: linear-gradient(180deg, chocolate, black);
+    mix-blend-mode: multiply;
+    opacity: 0;
+    transition: 0.5s;
+}
+.portfolio .portfolio-container .portfolio-item:hover .image::before{
+    opacity: 1;
+}
+.portfolio .portfolio-container .portfolio-item .content{
+    position: absolute;
+    padding: 2rem;
+    align-items: flex-end;
+    color: white;
+}
+.portfolio .portfolio-container .portfolio-item .content h2{
+    font-size: 3rem;
+    padding: 2rem 0 3rem;
+    transition: 0.5s;
+    transform: translateY(25rem);
+}
+.portfolio .portfolio-container .portfolio-item:hover .content h2{
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+.portfolio .portfolio-container .portfolio-item .content p{
+    font-size: 1.2rem;
+    transition: 0.5s;
+    transform: translateY(25rem);
+}
+.portfolio .portfolio-container .portfolio-item:hover .content p{
+    transform: translateY(0);
+    transition-delay: 0.8s;
+}
+/*PORTFOLIO SECTION ENDS*/
+
+/*CONTACT SECTION STARTS*/
+.contact .contact-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.contact .contact-container .content{
+    flex: 1 1 30rem;
+    padding: 4rem;
+    padding-bottom: 0;
+}
+.contact .contact-container .content .title{
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+.contact .contact-container .content .info{
+    font-size: 2rem;
+}
+.contact .contact-container form{
+    flex: 1 1 45rem;
+    padding: 4rem; margin: 2rem;
+    background: linear-gradient(-135deg, chocolate, black);
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+}
+.contact .contact-container form .input{
+    width: 100%;
+    padding: 1.5rem; margin: 1rem 0;
+    background-color: white;
+    color: chocolate;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+}
+.contact .contact-container form .input:focus{
+    transform: scale(1.1);
+}
+.contact .contact-container form .input::placeholder{
+    color: chocolate;
+}
+.contact .contact-container form textarea{
+    resize: none;
+}
+.contact .contact-container form button{
+    width: 100%;
+    padding: 1.5rem; margin: 1rem 0;
+    background-color: chocolate;
+    color: white;
+    border-radius: 1rem;
+    font-size: 2rem;
+}
+.contact .contact-container form button:hover{
+    transform: scale(1.1);
+}
+/*CONTACT SECTION ENDS*/
+
+/*KEYFRAMES SECTION STARTS*/
+@keyframes animate{
+    40%, 60%{
+        left: 100%;
+    }
+    100%{
+        left: 0%;
+    }
+}
+@keyframes wave-animation{
+    0%, 40%, 100%{
+        transform: translateY(0);
+    }
+    20%{
+        transform: translateY(-20px);
+    }
+}
+/*KEYFRAMES SECTION ENDS*
+
+/*MEDIA QUERIES SECTION STARTS*/
+@media (max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+    .home{
+        padding: 1rem 4rem;
+        margin: 0;
+    }
+}
+@media (max-width:990px){
+    header .hero img{
+        margin-top: 3rem;
+    }
+    section{
+        padding: 6rem;
+    }
+    .heading{
+        font-size: 5rem;
+    }
+    .home{
+        padding: 5rem;
+    }
+    .about .info-container{
+        padding: 0;
+        text-align: center;
+    }
+    .about .info-container .box-container .box-info{
+        width: 100%;
+    }
+    .contact .contact-container{
+        text-align: center;
+    }
+}
+@media (max-width:768px){
+    header{
+        left: -120%;
+        width: 100%;
+    }
+    header.toggle{
+        left: 0%;
+    }
+    body{
+        padding: 0;
+    }
+    section {
+        padding: 8rem;
+    }
+    .hamburger{
+        display: block;
+    }
+    .home{
+        text-align: center;
+        margin: 0 2rem;
+    }
+    .home h1{
+        font-size: 5rem;
+    }
+    .home p{
+        font-size: 2rem;
+    }   
+}
+@media (max-width:400px){
+    body{
+        padding: 4rem;
+    }
+    section {
+        padding: 3rem;
+    }
+    .heading{
+        padding: 0; margin: 1rem;
+    }
+    .home {
+        margin: 0;
+    }
+    .portfolio .portfolio-container .portfolio-item{
+        width: 50rem;
+    }
+}
+/*MEDIA QUERIES SECTION ENDS*
